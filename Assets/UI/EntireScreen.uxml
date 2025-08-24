@@ -1,4 +1,4 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:Template name="CentralHud" src="project://database/Assets/UI/CentralHud.uxml?fileID=9197481963319205126&amp;guid=90b3775f735dc4aa5a60d89c5b7e3dc3&amp;type=3#CentralHud" />
-    <engine:Instance template="CentralHud" style="height: 654px; width: 1248px; top: 122px; left: 96px;" />
+    <engine:Instance template="CentralHud" style="height: 660px; width: 1182px; top: 91px; left: 80px; rotate: -1deg; opacity: 0.89;" />
 </engine:UXML>
