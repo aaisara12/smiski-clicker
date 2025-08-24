@@ -1,13 +1,22 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="root" style="flex-grow: 1; flex-direction: row; background-color: rgb(245, 220, 255);">
+    <engine:VisualElement name="root" data-source="project://database/Assets/UI/MainUiModel.asset?fileID=11400000&amp;guid=dc69fcfb029394c04b8388734787e50a&amp;type=2#MainUiModel" style="flex-grow: 1; flex-direction: row; background-color: rgb(245, 220, 255);">
         <engine:VisualElement name="left" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.2);">
             <engine:VisualElement name="left-top" style="flex-grow: 1;" />
             <engine:VisualElement name="left-bot" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.09);" />
         </engine:VisualElement>
-        <engine:VisualElement name="center" style="flex-grow: 1;">
-            <engine:VisualElement name="center-top" style="height: 150px; background-color: rgba(255, 4, 4, 0.1);" />
-            <engine:VisualElement style="flex-grow: 1; justify-content: center;">
-                <engine:Button text="Mine" style="width: 500px; flex-basis: auto; display: flex; overflow: hidden; visibility: visible; position: absolute; height: 100px; align-items: center; align-self: center; justify-content: flex-start; align-content: flex-start; font-size: 42px; -unity-font-style: normal;" />
+        <engine:VisualElement name="center" style="flex-grow: 0;">
+            <engine:VisualElement name="center-top" style="height: 150px; background-color: rgba(255, 4, 4, 0.1); display: flex; flex-direction: column; right: 0; left: 0; align-items: center; justify-content: center;">
+                <engine:VisualElement name="gold" style="flex-grow: 0; flex-direction: row;">
+                    <engine:Label text="$" name="dollar-sign" style="font-size: 88px; -unity-font-style: normal; -unity-text-align: middle-center;" />
+                    <engine:Label text="&lt;MONEY&gt;" name="amount" style="font-size: 91px; -unity-text-align: middle-left; position: relative; top: 0; right: 0; left: 0; bottom: 0; background-color: rgba(202, 45, 45, 0);">
+                        <Bindings>
+                            <engine:DataBinding property="text" data-source-path="Gold" binding-mode="ToTarget" source-to-ui-converters="Value To Progress" />
+                        </Bindings>
+                    </engine:Label>
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="center-bot" style="flex-grow: 1; justify-content: center; display: flex;">
+                <engine:Button text="Mine" style="width: 500px; flex-basis: auto; display: flex; overflow: hidden; visibility: visible; position: relative; height: 100px; align-items: center; align-self: center; justify-content: flex-start; align-content: flex-start; font-size: 42px; -unity-font-style: normal; margin-top: 21px; margin-right: 21px; margin-bottom: 21px; margin-left: 21px;" />
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="right" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.06);" />
