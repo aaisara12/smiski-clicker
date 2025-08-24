@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864e900cf21204af38dca82111f765f6, type: 3}
   m_Name: MainUiModel
   m_EditorClassIdentifier: 
-  Gold: 34
+  Gold: 39
   Banners:
   - name: GENETIC APEX
     banner: {fileID: 11400000, guid: 91f0dc1b443cfbf4799480f82954bb47, type: 2}
@@ -25,6 +25,6 @@ MonoBehaviour:
     timeRemaining: 1065
   CoinGenerators:
   - coinGenerator: {fileID: 11400000, guid: cb0edd07716ed45b2b6dd1f0b8034a46, type: 2}
-    count: 0
+    count: 8
     buyPrice: 0
     sellPrice: 0
