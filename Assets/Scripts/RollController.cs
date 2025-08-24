@@ -76,6 +76,9 @@ public class RollController : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
 
         icon.sprite = result.icon;
+
+        yield return new WaitForSeconds(3f);
+        ResolveRoll();
     }
 
     public void InitiateRoll()

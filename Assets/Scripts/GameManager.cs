@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public RollController rollController;
     [SerializeField] public BannerManager bannerManager;
+    [SerializeField] public ShelfController shelfController;
 
     [SerializeField] List<DropSet> sets;
     [SerializeField] List<BannerSet> bannerSets;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         // TODO: Handle special drop collection
 
         currentCollectedDrops.Add(drop);
+        shelfController.RegisterDrop(drop);
         if (currentCollectedDrops.Count == sets[currentActiveSet].drops.Count)
         {
             Prestige();
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
         currentActiveSet = prestigeLevel % sets.Count;
         currentCollectedDrops.Clear(); 
         bannerManager.ResetBanners();
+        shelfController.RegisterDropSet(sets[currentActiveSet]);
         foreach(Banner banner in bannerSets[currentActiveSet].banners)
         {
             bannerManager.QueueBanner(banner); 
