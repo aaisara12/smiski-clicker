@@ -12,7 +12,8 @@ public class BannerManager : MonoBehaviour
         public string name;
         public Banner banner;
         public int timeRemaining; // in seconds
-        public int price;   
+        public int price;
+        public int id;
     }
 
     [Header("Banner Settings")]
@@ -28,6 +29,9 @@ public class BannerManager : MonoBehaviour
     // Event triggered when a banner is displayed
     public UnityEvent OnBannerChanged = new UnityEvent();
 
+
+    private int currentBannerId = 0;
+    
     // Add a new banner
     public void AddBanner(Banner banner)
     {
@@ -36,7 +40,8 @@ public class BannerManager : MonoBehaviour
         activeBanners.Add(new ActiveBanner()
         {
             banner = banner,
-            timeRemaining = banner.timeUnitsOffered
+            timeRemaining = banner.timeUnitsOffered,
+            id = currentBannerId++
         });
 
     }

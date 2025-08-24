@@ -28,6 +28,16 @@ public partial class BuyCoinGenerator : ButtonBehavior
     }
 }
 
+[UxmlObject]
+public partial class BuyBanner : ButtonBehavior
+{
+    public override void OnClicked(Button button)
+    {
+        int id = int.Parse(button.tooltip);
+        GameManager.Instance.BuyBanner(id);
+    }
+}
+
 [UxmlElement]
 public partial class ButtonWithClickBehavior : Button
 {

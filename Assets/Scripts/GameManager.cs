@@ -89,6 +89,29 @@ public class GameManager : MonoBehaviour
             bannerManager.QueueBanner(bonusBanner);
     }
 
+    public void BuyBanner(int id)
+    {
+        BannerManager.ActiveBanner bannerToBuy = null;
+        
+        foreach (var activeBanner in bannerManager.activeBanners)
+        {
+            if (activeBanner.id == id)
+            {
+                bannerToBuy = activeBanner;
+            }
+        }
+
+        if (bannerToBuy == null)
+        {
+            return;
+        }
+        
+        rollController.ReadyRoll(bannerToBuy.banner);
+
+        // TODO: Add purchase animation
+        coins -= bannerToBuy.price;
+    }
+
 
     #region Money Generation
     public Dictionary<CoinGenerator, int> activeCoinGenerators = new Dictionary<CoinGenerator, int>();
