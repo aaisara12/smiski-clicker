@@ -9,12 +9,11 @@ public class RollController : MonoBehaviour
     [SerializeField] Image icon;
     Drop result;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void ReadyRoll(Banner ban)
     {
-        
+        gameObject.SetActive(true);
+        banner = ban;
     }
-
     public Drop GenerateRollResult()
     {
         if (banner == null || banner.dropsWithRates.Count == 0)
@@ -87,9 +86,10 @@ public class RollController : MonoBehaviour
     public void ResolveRoll()
     {
         // Register roll result to GameManager
-        GameManager.Instance.AddDropToCollection(result); 
-        
+        GameManager.Instance.AddDropToCollection(result);
+
         // Disable Component
+        gameObject.SetActive(false);
     }
 
 }

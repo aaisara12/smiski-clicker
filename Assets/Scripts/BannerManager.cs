@@ -15,6 +15,7 @@ public class BannerManager : MonoBehaviour
 
     [Header("Banner Settings")]
     public int cycleInterval = 15; // seconds between banner swaps
+    public List<Banner> queuedBanners = new List<Banner>();
 
     [Header("Active Banners")]
     public List<ActiveBanner> activeBanners = new List<ActiveBanner>();
@@ -36,41 +37,46 @@ public class BannerManager : MonoBehaviour
             timeRemaining = banner.timeUnitsOffered
         });
 
-        if (cycleRoutine == null)
-            cycleRoutine = StartCoroutine(CycleBanners());
     }
 
     // Remove a banner explicitly
     public void RemoveBanner(Banner banner)
     {
         activeBanners.RemoveAll(b => b.banner == banner);
+    }
 
-        if (activeBanners.Count == 0 && cycleRoutine != null)
-        {
-            StopCoroutine(cycleRoutine);
-            OnBannerChanged.Invoke();
-            cycleRoutine = null;
-            currentBannerIndex = 0;
-        }
+    public void QueueBanner(Banner banner)
+    {
+        queuedBanners.Add(banner);
     }
 
     public void ResetBanners()
     {
+        ClearBannerQueue();
         activeBanners.Clear();
-        StopCoroutine(cycleRoutine);
+        if (cycleRoutine != null)
+            StopCoroutine(cycleRoutine);
         OnBannerChanged.Invoke();
-        cycleRoutine = null;
         currentBannerIndex = 0;
+        cycleRoutine = StartCoroutine(CycleBanners());
+    }
+
+    public void ClearBannerQueue()
+    {
+        queuedBanners.Clear();
     }
 
     private IEnumerator CycleBanners()
     {
-        while (activeBanners.Count > 0)
+        while (true)
         {
-            if (currentBannerIndex >= activeBanners.Count)
-                currentBannerIndex = 0;
+            if (queuedBanners.Count <= 0)
+            {
+                yield return null;
+                continue;
+            }
 
-            ActiveBanner current = activeBanners[currentBannerIndex];
+            AddBanner(queuedBanners[currentBannerIndex]);
 
             // Wait for cycleInterval seconds, ticking once per second
             for (int elapsed = 0; elapsed < cycleInterval; elapsed++)
@@ -87,18 +93,11 @@ public class BannerManager : MonoBehaviour
                     {
                         // Time ran out, remove this banner
                         RemoveBanner(activeBanners[i].banner);
-
-                        // Adjust index to not skip banners
-                        if (i <= currentBannerIndex)
-                            currentBannerIndex--;
                     }
                 }
-
-                if (activeBanners.Count == 0)
-                    yield break;
             }
-
-            currentBannerIndex++;
+            OnBannerChanged.Invoke();
+            currentBannerIndex = (currentBannerIndex+1) % queuedBanners.Count;
         }
     }
 }

@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public int Coins { get { return (int) Mathf.Round(coins); } set { coins = value; } }
     private float coins = 0;
 
-    [SerializeField] BannerManager bannerManager;
+    [SerializeField] public RollController rollController;
+    [SerializeField] public BannerManager bannerManager;
 
     [SerializeField] List<DropSet> sets;
     [SerializeField] List<BannerSet> bannerSets;
@@ -21,6 +22,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        Prestige(); 
     }
 
     public void AddDropToCollection(Drop drop)
@@ -40,12 +46,14 @@ public class GameManager : MonoBehaviour
         prestigeLevel++;
         Banner bonusBanner = sets[currentActiveSet].bonusBanner;
         currentActiveSet = prestigeLevel % sets.Count;
+        currentCollectedDrops.Clear(); 
         bannerManager.ResetBanners();
         foreach(Banner banner in bannerSets[currentActiveSet].banners)
         {
-            bannerManager.AddBanner(banner); 
+            bannerManager.QueueBanner(banner); 
         }
-        bannerManager.AddBanner(bonusBanner);
+        if (bonusBanner != null)
+            bannerManager.QueueBanner(bonusBanner);
     }
 
 
