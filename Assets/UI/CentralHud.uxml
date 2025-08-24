@@ -1,11 +1,17 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:VisualElement name="root" data-source="project://database/Assets/UI/MainUiModel.asset?fileID=11400000&amp;guid=dc69fcfb029394c04b8388734787e50a&amp;type=2#MainUiModel" style="flex-grow: 1; flex-direction: row; background-color: rgb(245, 220, 255);">
         <engine:VisualElement name="left" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.2);">
-            <engine:VisualElement name="left-top" style="flex-grow: 1;" />
-            <engine:VisualElement name="left-bot" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.09);">
-                <engine:ListView item-template="project://database/Assets/UI/BannerView.uxml?fileID=9197481963319205126&amp;guid=b7ee0b6d3ef8a4c44a9d8a8da6af40c3&amp;type=3#BannerView" binding-source-selection-mode="AutoAssign">
+            <engine:VisualElement name="left-top" style="flex-grow: 1;">
+                <engine:ListView binding-source-selection-mode="AutoAssign" item-template="project://database/Assets/UI/CoinGeneratorView.uxml?fileID=9197481963319205126&amp;guid=9d143ed7fd10d4f49833aa96a64c4320&amp;type=3#CoinGeneratorView" virtualization-method="DynamicHeight">
                     <Bindings>
-                        <engine:DataBinding property="itemsSource" data-source-path="Banners" binding-mode="ToTarget"/>
+                        <engine:DataBinding property="itemsSource" data-source-path="CoinGenerators" binding-mode="ToTarget" />
+                    </Bindings>
+                </engine:ListView>
+            </engine:VisualElement>
+            <engine:VisualElement name="left-bot" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.09);">
+                <engine:ListView item-template="project://database/Assets/UI/BannerView.uxml?fileID=9197481963319205126&amp;guid=b7ee0b6d3ef8a4c44a9d8a8da6af40c3&amp;type=3#BannerView" binding-source-selection-mode="AutoAssign" virtualization-method="DynamicHeight">
+                    <Bindings>
+                        <engine:DataBinding property="itemsSource" data-source-path="Banners" binding-mode="ToTarget" />
                     </Bindings>
                 </engine:ListView>
             </engine:VisualElement>

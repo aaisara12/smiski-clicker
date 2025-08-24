@@ -14,9 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gold: 34
   Banners:
-  - banner: {fileID: 11400000, guid: 91f0dc1b443cfbf4799480f82954bb47, type: 2}
+  - name: GENETIC APEX
+    banner: {fileID: 11400000, guid: 91f0dc1b443cfbf4799480f82954bb47, type: 2}
     timeRemaining: 1262
-  - banner: {fileID: 11400000, guid: 91f0dc1b443cfbf4799480f82954bb47, type: 2}
+  - name: SHINING REVELRY
+    banner: {fileID: 11400000, guid: 91f0dc1b443cfbf4799480f82954bb47, type: 2}
     timeRemaining: 1258
-  - banner: {fileID: 11400000, guid: 91f0dc1b443cfbf4799480f82954bb47, type: 2}
+  - name: SPACE-TIME SMACKDOWN
+    banner: {fileID: 11400000, guid: 91f0dc1b443cfbf4799480f82954bb47, type: 2}
     timeRemaining: 1065
+  CoinGenerators:
+  - coinGenerator: {fileID: 11400000, guid: cb0edd07716ed45b2b6dd1f0b8034a46, type: 2}
+    count: 0
+    buyPrice: 0
+    sellPrice: 0

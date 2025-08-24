@@ -7,4 +7,6 @@ public class MainUiModel : ScriptableObject
     public int Gold;
 
     public List<BannerManager.ActiveBanner> Banners;
+
+    public List<CoinGeneratorGroup> CoinGenerators;
 }
