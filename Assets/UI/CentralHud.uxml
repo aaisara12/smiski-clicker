@@ -2,7 +2,13 @@
     <engine:VisualElement name="root" data-source="project://database/Assets/UI/MainUiModel.asset?fileID=11400000&amp;guid=dc69fcfb029394c04b8388734787e50a&amp;type=2#MainUiModel" style="flex-grow: 1; flex-direction: row; background-color: rgb(245, 220, 255);">
         <engine:VisualElement name="left" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.2);">
             <engine:VisualElement name="left-top" style="flex-grow: 1;" />
-            <engine:VisualElement name="left-bot" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.09);" />
+            <engine:VisualElement name="left-bot" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.09);">
+                <engine:ListView item-template="project://database/Assets/UI/BannerView.uxml?fileID=9197481963319205126&amp;guid=b7ee0b6d3ef8a4c44a9d8a8da6af40c3&amp;type=3#BannerView" binding-source-selection-mode="AutoAssign">
+                    <Bindings>
+                        <engine:DataBinding property="itemsSource" data-source-path="Banners" binding-mode="ToTarget"/>
+                    </Bindings>
+                </engine:ListView>
+            </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="center" style="flex-grow: 0;">
             <engine:VisualElement name="center-top" style="height: 150px; background-color: rgba(255, 4, 4, 0.1); display: flex; flex-direction: column; right: 0; left: 0; align-items: center; justify-content: center;">
