@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -16,9 +17,29 @@ namespace DefaultNamespace
         private void Start()
         {
             _bannerManager.OnBannerChanged.AddListener(HandleOnBannerChanged);
+            _gameManager.CoinGeneratorsUpdated.AddListener(HandleCoinGeneratorsUpdated);
 
             _mineButton = _mainUiDocument.rootVisualElement.Q<Button>("mine-button");
             _mineButton.RegisterCallback<ClickEvent>(OnClickMineButton);
+        }
+
+        private void HandleCoinGeneratorsUpdated()
+        {
+            List<CoinGeneratorGroup> newCointGeneratorGroups = new List<CoinGeneratorGroup>();
+            
+            foreach (var activeCoinGeneratorPair in _gameManager.activeCoinGenerators)
+            {       
+                var coinGenerator = activeCoinGeneratorPair.Key;
+                var coinGeneratorCount = activeCoinGeneratorPair.Value;
+
+                var coinGeneratorGroup = new CoinGeneratorGroup();
+                coinGeneratorGroup.coinGenerator = coinGenerator;
+                coinGeneratorGroup.count = coinGeneratorCount;
+                
+                newCointGeneratorGroups.Add(coinGeneratorGroup);
+            }
+            
+            _mainUiModel.CoinGenerators = newCointGeneratorGroups;
         }
 
         private void OnClickMineButton<TEventType>(TEventType evt) where TEventType : EventBase<TEventType>, new()
@@ -39,6 +60,7 @@ namespace DefaultNamespace
         private void OnDestroy()
         {
             _bannerManager.OnBannerChanged.RemoveListener(HandleOnBannerChanged);
+            _gameManager.CoinGeneratorsUpdated.RemoveListener(HandleCoinGeneratorsUpdated);
         }
     }
 }

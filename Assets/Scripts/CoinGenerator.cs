@@ -5,4 +5,5 @@ public class CoinGenerator : ScriptableObject
 {
     public Sprite icon;
     public float coinPerSecond;
+    public int id;
 }

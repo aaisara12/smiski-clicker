@@ -426,6 +426,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 94767d25e5c1efa47ab0be637f03becc, type: 2}
   bannerSets:
   - {fileID: 11400000, guid: 9f5cfe6349107c648afb31315e74abeb, type: 2}
+  coinGenerators:
+  - {fileID: 11400000, guid: cb0edd07716ed45b2b6dd1f0b8034a46, type: 2}
+  - {fileID: 11400000, guid: 520d3add4ebec4584a0f222529e858a0, type: 2}
   prestigeLevel: 0
   CoinGeneratorsUpdated:
     m_PersistentCalls:
