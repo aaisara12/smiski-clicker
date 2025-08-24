@@ -93,6 +93,13 @@ public class GameManager : MonoBehaviour
         CoinGeneratorsUpdated.Invoke();
     }
 
+    private int _pointsPerClick = 1;
+
+    public void MineBitCoin()
+    {
+        Coins += _pointsPerClick;
+    }
+
 
     #endregion
 
