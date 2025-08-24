@@ -9,6 +9,7 @@ public class BannerManager : MonoBehaviour
     [System.Serializable]
     public class ActiveBanner
     {
+        public string name;
         public Banner banner;
         public int timeRemaining; // in seconds
     }
