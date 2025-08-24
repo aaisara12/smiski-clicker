@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip buy;
     [SerializeField] AudioClip sell;
     [SerializeField] AudioClip newBanner;
+    [SerializeField] AudioClip purchaseFail;
     [SerializeField] AudioClip rollTick;
     [SerializeField] AudioClip rollFinal;
 
@@ -51,6 +52,11 @@ public class AudioManager : MonoBehaviour
     public void PlayNewBanner()
     {
         audioPlayer.PlayOneShot(newBanner);
+    }
+
+    public void PlayPurchaseFail()
+    {
+        audioPlayer.PlayOneShot(purchaseFail);
     }
 
     public void PlayRollTick()
