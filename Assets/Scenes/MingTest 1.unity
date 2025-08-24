@@ -166,6 +166,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9184653155bec784fb4f13f753aa8948, type: 2}
   bannerSets:
   - {fileID: 11400000, guid: 5c2c52da81f789241925b8acc080540f, type: 2}
+  specialDrops: []
   prestigeLevel: 0
   CoinGeneratorsUpdated:
     m_PersistentCalls:
@@ -887,9 +888,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1777248886917336849, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777248886917336849, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777248886917336849, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777248886917336849, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1800564092186554547, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
       propertyPath: m_Name
       value: Shelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508844697198357812, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
+      propertyPath: debugDrop
+      value: 
+      objectReference: {fileID: 11400000, guid: e957ac0b610f78146b32cd5fc0cc13ca, type: 2}
+    - target: {fileID: 4508844697198357812, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
+      propertyPath: rowOffset.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508844697198357812, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
+      propertyPath: rowOffset.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508844697198357812, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
+      propertyPath: rowOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508844697198357812, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
+      propertyPath: itemSpacing.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7529776909975557836, guid: 5e8fe85c9e5913d458c4e76f74d9dc3b, type: 3}
       propertyPath: m_LocalPosition.x

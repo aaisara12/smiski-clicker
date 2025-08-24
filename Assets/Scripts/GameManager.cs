@@ -13,8 +13,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] public BannerManager bannerManager;
     [SerializeField] public ShelfController shelfController;
 
+    [Header("Drops Logic")]
+
     [SerializeField] List<DropSet> sets;
     [SerializeField] List<BannerSet> bannerSets;
+    [SerializeField] List<Drop> specialDrops;
+    HashSet<string> specialIdentifiers = new HashSet<string>();
+    HashSet<string> collectedIdentifiers = new HashSet<string>();
 
     public int prestigeLevel = 0;
     private int currentActiveSet = 0;  // Index of dropset and bannerset to use. Mod the result is greater than available sets 
@@ -23,6 +28,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        foreach(Drop drop in specialDrops)
+        {
+            specialIdentifiers.Add(drop.identifier);
+        }
     }
 
     private void Start()
@@ -32,7 +42,16 @@ public class GameManager : MonoBehaviour
 
     public void AddDropToCollection(Drop drop)
     {
-        // TODO: Handle special drop collection
+        // Handle special drop collection
+        if (specialIdentifiers.Contains(drop.identifier))
+        {
+            if (!collectedIdentifiers.Contains(drop.identifier))
+            {
+                collectedIdentifiers.Add(drop.identifier);
+                CollectSpecialDrop(drop);
+            }
+            return;
+        }
 
         currentCollectedDrops.Add(drop);
         shelfController.RegisterDrop(drop);
@@ -101,6 +120,12 @@ public class GameManager : MonoBehaviour
     public void MineBitCoin()
     {
         Coins += _pointsPerClick;
+    }
+
+    // Upgrade points per click, play special effect
+    public void CollectSpecialDrop(Drop drop)
+    {
+        _pointsPerClick++; 
     }
 
 
