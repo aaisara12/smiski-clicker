@@ -12,6 +12,8 @@ public class DropRate
 [CreateAssetMenu(fileName = "NewBanner", menuName = "Gacha/Banner")]
 public class Banner : ScriptableObject
 {
+    public string packName;
+    
     [Header("Banner Drops & Rates")]
     public List<DropRate> dropsWithRates = new List<DropRate>();
 

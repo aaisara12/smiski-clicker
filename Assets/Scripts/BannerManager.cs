@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using System;
+using Random = System.Random;
 
 public class BannerManager : MonoBehaviour
 {
@@ -31,6 +32,17 @@ public class BannerManager : MonoBehaviour
 
 
     private int currentBannerId = 0;
+
+    [SerializeField] private List<string> suffixes = new List<string>()
+    {
+        "Bonanza",
+        "Masters",
+        "Anniversary",
+        "Legends",
+        "Xtreme Booster",
+        "Court",
+        "Guardians"
+    };
     
     // Add a new banner
     public void AddBanner(Banner banner)
@@ -39,7 +51,9 @@ public class BannerManager : MonoBehaviour
 
         activeBanners.Add(new ActiveBanner()
         {
+            name = banner.packName + " " + suffixes[currentBannerId % suffixes.Count],
             banner = banner,
+            price = 99,     // TODO
             timeRemaining = banner.timeUnitsOffered,
             id = currentBannerId++
         });
