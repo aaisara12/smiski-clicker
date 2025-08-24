@@ -6,7 +6,7 @@ public class DropRate
 {
     public Drop drop;
     [Range(0f, 1f)]
-    public float rate; // probability (0–1)
+    public float rate; // probability (0ï¿½1)
 }
 
 [CreateAssetMenu(fileName = "NewBanner", menuName = "Gacha/Banner")]

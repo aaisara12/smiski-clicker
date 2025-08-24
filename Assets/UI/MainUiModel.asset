@@ -16,7 +16,7 @@ MonoBehaviour:
   Banners:
   - name: GENETIC APEX
     banner: {fileID: 11400000, guid: 91f0dc1b443cfbf4799480f82954bb47, type: 2}
-    timeRemaining: 1262
+    timeRemaining: 1231
   - name: SHINING REVELRY
     banner: {fileID: 11400000, guid: 91f0dc1b443cfbf4799480f82954bb47, type: 2}
     timeRemaining: 1258

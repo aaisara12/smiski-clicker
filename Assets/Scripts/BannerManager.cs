@@ -12,6 +12,7 @@ public class BannerManager : MonoBehaviour
         public string name;
         public Banner banner;
         public int timeRemaining; // in seconds
+        public int price;   
     }
 
     [Header("Banner Settings")]
