@@ -1,0 +1,12 @@
+.myButton {
+}
+
+.myButton:hover .tint {
+    opacity: 0.3;
+    transition-property: opacity;
+    transition-duration: 0.1s;
+}
+
+.tint {
+    opacity: 0;
+}

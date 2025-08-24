@@ -1,0 +1,21 @@
+.TestAnim {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+}
+
+.TestAnim:hover {
+    scale: 1.2 1.2;
+    transition-property: scale;
+    transition-duration: 0.1s;
+}
+
+.tint {
+    opacity: 0;
+}
+
+.tint:hover {
+    opacity: 0.48;
+}
+
+.tint:active {
+    opacity: 1;
+}

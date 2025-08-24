@@ -1,5 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="root" data-source-type="BannerManager+ActiveBanner, Assembly-CSharp" style="flex-grow: 0; height: 159px; background-color: rgb(236, 75, 75); flex-direction: row; align-items: center; padding-top: 9px; padding-right: 9px; padding-bottom: 9px; padding-left: 9px; border-top-left-radius: 13px; border-top-right-radius: 13px; border-bottom-right-radius: 13px; border-bottom-left-radius: 13px; border-left-color: rgba(0, 0, 0, 0.58); border-right-color: rgba(0, 0, 0, 0.58); border-top-color: rgba(0, 0, 0, 0.58); border-bottom-color: rgba(0, 0, 0, 0.58); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px;">
+    <Style src="project://database/Assets/UI/Anims.uss?fileID=7433441132597879392&amp;guid=613c172251803487d84167900d06af8f&amp;type=3#Anims" />
+    <engine:VisualElement name="root" data-source-type="BannerManager+ActiveBanner, Assembly-CSharp" class="myButton" style="flex-grow: 0; height: 159px; background-color: rgb(236, 75, 75); flex-direction: row; align-items: center; padding-top: 9px; padding-right: 9px; padding-bottom: 9px; padding-left: 9px; border-top-left-radius: 13px; border-top-right-radius: 13px; border-bottom-right-radius: 13px; border-bottom-left-radius: 13px; border-left-color: rgba(0, 0, 0, 0.58); border-right-color: rgba(0, 0, 0, 0.58); border-top-color: rgba(0, 0, 0, 0.58); border-bottom-color: rgba(0, 0, 0, 0.58); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px;">
         <engine:VisualElement name="content" style="flex-grow: 1; flex-direction: row; height: 91%; align-items: center;">
             <engine:VisualElement name="left" style="flex-grow: 1; width: 50%;">
                 <engine:Label text="APEX EVOLUTION" name="title" style="-unity-font-style: bold-and-italic; font-size: 24px; white-space: normal;">
@@ -28,7 +29,8 @@
                 </engine:VisualElement>
             </engine:VisualElement>
         </engine:VisualElement>
-        <ButtonWithClickBehavior style="overflow: visible; position: absolute; width: 100%; height: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: rgba(188, 188, 188, 0);">
+        <engine:VisualElement name="tint" class="tint" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; left: 0; background-color: rgb(255, 255, 255);" />
+        <ButtonWithClickBehavior style="overflow: visible; position: absolute; width: 100%; height: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;">
             <clicked>
                 <BuyBanner />
             </clicked>
