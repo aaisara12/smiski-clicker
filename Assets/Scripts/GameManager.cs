@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
     HashSet<string> specialIdentifiers = new HashSet<string>();
     HashSet<string> collectedIdentifiers = new HashSet<string>();
 
+    [SerializeField] List<CoinGenerator> coinGenerators;
+
+
     public int prestigeLevel = 0;
     private int currentActiveSet = 0;  // Index of dropset and bannerset to use. Mod the result is greater than available sets 
     HashSet<Drop> currentCollectedDrops = new HashSet<Drop>();  // The drops collected in the current set 
@@ -37,6 +41,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        foreach (var coinGenerator in coinGenerators)
+        {
+            activeCoinGenerators.TryAdd(coinGenerator, 0);
+        }
+        
+        CoinGeneratorsUpdated?.Invoke();
+        
         Prestige(); 
     }
 
@@ -89,8 +100,31 @@ public class GameManager : MonoBehaviour
         coins += coinPerSecondTotal * Time.deltaTime;
     }
 
-    public void AddCoinGenerator(CoinGenerator generator, int amt = 1)
+    private CoinGenerator GetCoinGeneratorById(int id)
     {
+        CoinGenerator generator = null;
+        
+        foreach (var coinGenerator in coinGenerators)
+        {
+            if (coinGenerator.id == id)
+            {
+                generator = coinGenerator;
+            }
+        }
+
+        return generator;
+    }
+
+    public void AddCoinGenerator(int id, int amt = 1)
+    {
+        var generator = GetCoinGeneratorById(id);
+
+        if (generator == null)
+        {
+            Debug.Log($"Invalid generator ID {id}!");
+            return;
+        }
+        
         if (!activeCoinGenerators.ContainsKey(generator))
             activeCoinGenerators[generator] = 0;
         activeCoinGenerators[generator] += amt;
@@ -99,8 +133,16 @@ public class GameManager : MonoBehaviour
         CoinGeneratorsUpdated.Invoke();
     }
 
-    public void RemoveCoinGenerator(CoinGenerator generator, int amt = 1)
+    public void RemoveCoinGenerator(int id, int amt = 1)
     {
+        var generator = GetCoinGeneratorById(id);
+
+        if (generator == null)
+        {
+            Debug.Log($"Invalid generator ID {id}!");
+            return;
+        }
+        
         int delta = 0;
         if (activeCoinGenerators.ContainsKey(generator))
         {
