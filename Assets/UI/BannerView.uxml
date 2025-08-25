@@ -38,5 +38,8 @@
                 <engine:DataBinding property="tooltip" data-source-path="id" binding-mode="ToTarget" />
             </Bindings>
         </ButtonWithClickBehavior>
+        <Bindings>
+            <engine:DataBinding property="style.backgroundColor" data-source-path="timeRemaining" binding-mode="ToTarget" source-to-ui-converters="TimeleftToColorConverter" />
+        </Bindings>
     </engine:VisualElement>
 </engine:UXML>
