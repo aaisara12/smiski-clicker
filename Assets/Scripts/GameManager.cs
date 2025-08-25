@@ -105,6 +105,12 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+
+        if (coins < bannerToBuy.price)
+        {
+            AudioManager.Instance.PlayPurchaseFail();
+            return;
+        }
         
         rollController.ReadyRoll(bannerToBuy.banner);
 
@@ -136,6 +142,51 @@ public class GameManager : MonoBehaviour
         }
 
         return generator;
+    }
+    
+    public bool BuyCoinGenerator(int id)
+    {
+        var generator = GetCoinGeneratorById(id);
+
+        if (generator == null)
+        {
+            Debug.Log($"Invalid generator ID {id}!");
+            return false;
+        }
+
+        if (generator.buyPrice > Coins)
+        {
+            AudioManager.Instance.PlayPurchaseFail();
+            return false;
+        }
+
+        AddCoinGenerator(id);
+        AudioManager.Instance.PlayBuy();
+
+        return true;
+    }
+
+    public bool SellCoinGenerator(int id)
+    {
+        var generator = GetCoinGeneratorById(id);
+
+        if (generator == null)
+        {
+            Debug.Log($"Invalid generator ID {id}!");
+            return false;
+        }
+
+        if (!activeCoinGenerators.ContainsKey(generator) || activeCoinGenerators[generator] <= 0)
+        {
+            AudioManager.Instance.PlayPurchaseFail();
+            return false;
+        }
+
+        RemoveCoinGenerator(id);
+        AudioManager.Instance.PlaySell();
+
+        return true;
+
     }
 
     public void AddCoinGenerator(int id, int amt = 1)
@@ -185,6 +236,7 @@ public class GameManager : MonoBehaviour
     public void MineBitCoin()
     {
         Coins += _pointsPerClick;
+        AudioManager.Instance.PlayClick();
     }
 
     // Upgrade points per click, play special effect

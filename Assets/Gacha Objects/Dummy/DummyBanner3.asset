@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5da0e1793b24f44c9d5c05ec2a90198, type: 3}
   m_Name: DummyBanner3
   m_EditorClassIdentifier: 
+  packName: 
+  price: 100
   dropsWithRates:
   - drop: {fileID: 11400000, guid: da71e6b2195a1ed44834a88f48e8ba9f, type: 2}
     rate: 0.2

@@ -53,11 +53,12 @@ public class BannerManager : MonoBehaviour
         {
             name = banner.packName + " " + suffixes[currentBannerId % suffixes.Count],
             banner = banner,
-            price = 99,     // TODO
+            price = Mathf.RoundToInt(banner.price * (1f + 0.1f * GameManager.Instance.prestigeLevel)), 
             timeRemaining = banner.timeUnitsOffered,
             id = currentBannerId++
         });
 
+        AudioManager.Instance.PlayNewBanner();
     }
 
     // Remove a banner explicitly

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5da0e1793b24f44c9d5c05ec2a90198, type: 3}
   m_Name: Banner1 0
   m_EditorClassIdentifier: 
-  packName: Labu
+  packName: Skimi
+  price: 100
   dropsWithRates:
   - drop: {fileID: 11400000, guid: 181efd56eb1a7be4bafdd41e59291b43, type: 2}
     rate: 0.198

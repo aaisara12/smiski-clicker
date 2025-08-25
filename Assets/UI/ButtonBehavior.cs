@@ -14,7 +14,7 @@ public partial class SellCoinGenerator : ButtonBehavior
     public override void OnClicked(Button button)
     {
         int id = int.Parse(button.tooltip);
-        GameManager.Instance.RemoveCoinGenerator(id);
+        GameManager.Instance.SellCoinGenerator(id);
     }
 }
 
@@ -24,7 +24,7 @@ public partial class BuyCoinGenerator : ButtonBehavior
     public override void OnClicked(Button button)
     {
         int id = int.Parse(button.tooltip);
-        GameManager.Instance.AddCoinGenerator(id);
+        GameManager.Instance.BuyCoinGenerator(id);
     }
 }
 

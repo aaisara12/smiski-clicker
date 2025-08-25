@@ -13,6 +13,8 @@ public class DropRate
 public class Banner : ScriptableObject
 {
     public string packName;
+
+    public int price;
     
     [Header("Banner Drops & Rates")]
     public List<DropRate> dropsWithRates = new List<DropRate>();

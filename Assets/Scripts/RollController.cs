@@ -8,10 +8,16 @@ public class RollController : MonoBehaviour
     public Banner banner;
     [SerializeField] Image icon;
     Drop result;
+    [SerializeField] float rollTime = 4f;
+    [SerializeField] float rollPause = .25f;
+    [SerializeField] float slowRollPause = .5f;
+    [SerializeField] float finalRollPause = 1f;
+    [SerializeField] float pauseBeforeDisable = 2f;
 
     public void ReadyRoll(Banner ban)
     {
         gameObject.SetActive(true);
+        icon.sprite = null;
         banner = ban;
     }
     public Drop GenerateRollResult()
@@ -59,25 +65,28 @@ public class RollController : MonoBehaviour
 
         // Cycle through all options for some seconds
         float timeElapsed = 0;
-        while (timeElapsed < 4)
+        while (timeElapsed < rollTime)
         {
-            yield return new WaitForSeconds(.25f);
-            timeElapsed += 0.25f;
+            yield return new WaitForSeconds(rollPause);
+            timeElapsed += rollPause;
             icon.sprite = drops[ind].drop.icon;
             ind = (ind + 1) % drops.Count;
+            AudioManager.Instance.PlayRollTick();
         }
 
         // Tick slower for a few times
         for (int i = 0; i < 3; i++)
         {
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(slowRollPause);
             icon.sprite = drops[Random.Range(0, drops.Count - 1)].drop.icon;
+            AudioManager.Instance.PlayRollTick();
         }
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(finalRollPause);
 
+        AudioManager.Instance.PlayRollFinal();
         icon.sprite = result.icon;
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(pauseBeforeDisable);
         ResolveRoll();
     }
 
