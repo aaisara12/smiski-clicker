@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Banner2 2
   m_EditorClassIdentifier: 
   packName: Skimbi
-  price: 50
+  price: 30
   dropsWithRates:
   - drop: {fileID: 11400000, guid: 43df09d8f94f3ff4689d1d82e04c247c, type: 2}
     rate: 0.35

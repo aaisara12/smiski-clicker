@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71dd4b432c97864c88c2bfe8be812be, type: 3}
   m_Name: DummyGen123
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  coinPerSecond: 10
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  coinPerSecond: 20
   id: 1
-  buyPrice: 500
-  sellPrice: 300
+  buyPrice: 150
+  sellPrice: 100

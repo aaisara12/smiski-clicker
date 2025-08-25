@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5da0e1793b24f44c9d5c05ec2a90198, type: 3}
   m_Name: BonusBanner2-3
   m_EditorClassIdentifier: 
-  packName: 
-  price: 100
+  packName: Skimbi Special
+  price: 80
   dropsWithRates:
   - drop: {fileID: 11400000, guid: fe5fd5c933e24d04487cc785bebec4bb, type: 2}
     rate: 0.2
@@ -25,7 +25,7 @@ MonoBehaviour:
     rate: 0.1
   - drop: {fileID: 11400000, guid: 258d6498c79abdf43b720b79b77023b7, type: 2}
     rate: 0.1
-  - drop: {fileID: 11400000, guid: 3f87c34c000368d49a8034983c4579d5, type: 2}
+  - drop: {fileID: 11400000, guid: 797cb07d27a1d004cb52ab09a552f5fd, type: 2}
     rate: 0.1
   - drop: {fileID: 11400000, guid: e6140407ba5ea1d4faa8f33368486242, type: 2}
     rate: 0.1

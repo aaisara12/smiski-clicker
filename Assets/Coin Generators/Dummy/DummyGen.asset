@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DummyGen
   m_EditorClassIdentifier: 
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  coinPerSecond: 1
+  coinPerSecond: 2
   id: 0
-  buyPrice: 100
-  sellPrice: 80
+  buyPrice: 50
+  sellPrice: 40
