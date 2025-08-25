@@ -19,4 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58f4501a90e3a06419e0a3322487219a, type: 2}
   - {fileID: 11400000, guid: ff40a2043a242fd469cd38f1ccce50df, type: 2}
   - {fileID: 11400000, guid: e957ac0b610f78146b32cd5fc0cc13ca, type: 2}
-  bonusBanner: {fileID: 0}
+  bonusBanner: {fileID: 11400000, guid: e12b9ae11336fde4d92ac4ccd26bbd33, type: 2}

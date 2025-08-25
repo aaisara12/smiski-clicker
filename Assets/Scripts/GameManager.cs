@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
     {
         prestigeLevel++;
         Banner bonusBanner = sets[currentActiveSet].bonusBanner;
+        if (prestigeLevel == 0) bonusBanner = null;  // For the starting edge case
         currentActiveSet = prestigeLevel % sets.Count;
         currentCollectedDrops.Clear(); 
         bannerManager.ResetBanners();
@@ -154,12 +155,12 @@ public class GameManager : MonoBehaviour
             return false;
         }
 
-        if (generator.buyPrice > Coins)
+        if (generator.buyPrice > coins)
         {
             AudioManager.Instance.PlayPurchaseFail();
             return false;
         }
-
+        coins -= generator.buyPrice;
         AddCoinGenerator(id);
         AudioManager.Instance.PlayBuy();
 
@@ -242,7 +243,8 @@ public class GameManager : MonoBehaviour
     // Upgrade points per click, play special effect
     public void CollectSpecialDrop(Drop drop)
     {
-        _pointsPerClick++; 
+        _pointsPerClick++;
+        shelfController.AddItemToSpecialShelf(drop);
     }
 
 

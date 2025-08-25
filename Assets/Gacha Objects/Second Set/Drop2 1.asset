@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c71dd4b432c97864c88c2bfe8be812be, type: 3}
-  m_Name: DummyGen123
+  m_Script: {fileID: 11500000, guid: 301a701d0f2ace84ba9c0e05253f5001, type: 3}
+  m_Name: Drop2 1
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  coinPerSecond: 10
-  id: 1
-  buyPrice: 500
-  sellPrice: 300
+  icon: {fileID: -3985171821872452547, guid: 59fc775ae459aec40ac68bc02e00bc87, type: 3}
+  identifier: 

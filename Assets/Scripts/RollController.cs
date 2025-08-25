@@ -7,6 +7,8 @@ public class RollController : MonoBehaviour
 {
     public Banner banner;
     [SerializeField] Image icon;
+    [SerializeField] Sprite defaultSprite;
+    [SerializeField] Image effect;
     Drop result;
     [SerializeField] float rollTime = 4f;
     [SerializeField] float rollPause = .25f;
@@ -17,8 +19,10 @@ public class RollController : MonoBehaviour
     public void ReadyRoll(Banner ban)
     {
         gameObject.SetActive(true);
-        icon.sprite = null;
+        effect.enabled = false;
+        icon.sprite = defaultSprite;
         banner = ban;
+        InitiateRoll();
     }
     public Drop GenerateRollResult()
     {
@@ -85,8 +89,18 @@ public class RollController : MonoBehaviour
 
         AudioManager.Instance.PlayRollFinal();
         icon.sprite = result.icon;
+        effect.enabled = true;
+        timeElapsed = 0;
+        while (timeElapsed < pauseBeforeDisable)
+        {
+            yield return null;
+            timeElapsed += Time.deltaTime;
+            float t = timeElapsed / pauseBeforeDisable;
+            float scaleFac = Mathf.Lerp(1f, 3f, t);
+            effect.rectTransform.localScale = scaleFac * Vector3.one;
+            effect.color = new Color(effect.color.r, effect.color.g, effect.color.b, 1 - t);
+        }
 
-        yield return new WaitForSeconds(pauseBeforeDisable);
         ResolveRoll();
     }
 
