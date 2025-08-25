@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     public void AddDropToCollection(Drop drop)
     {
         // Handle special drop collection
-        if (specialIdentifiers.Contains(drop.identifier))
+        if (drop.identifier.Length > 0 && specialIdentifiers.Contains(drop.identifier))
         {
             if (!collectedIdentifiers.Contains(drop.identifier))
             {
