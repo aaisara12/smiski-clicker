@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5da0e1793b24f44c9d5c05ec2a90198, type: 3}
+  m_Name: Banner3 2
+  m_EditorClassIdentifier: 
+  packName: Occupational Mega
+  price: 40
+  dropsWithRates:
+  - drop: {fileID: 11400000, guid: afa1015cc7c2d644f866cb75b6d46e7f, type: 2}
+    rate: 0.1
+  - drop: {fileID: 11400000, guid: 45a36ea365956b44987cc71e13e38fba, type: 2}
+    rate: 0.1
+  - drop: {fileID: 11400000, guid: 258d6498c79abdf43b720b79b77023b7, type: 2}
+    rate: 0.1
+  - drop: {fileID: 11400000, guid: 1d298c34d3a8cd9488fb8683748510af, type: 2}
+    rate: 0.1
+  - drop: {fileID: 11400000, guid: 797cb07d27a1d004cb52ab09a552f5fd, type: 2}
+    rate: 0.1
+  - drop: {fileID: 11400000, guid: 39b84a7fb053b464fa62007b29d016e9, type: 2}
+    rate: 0.1
+  - drop: {fileID: 11400000, guid: fbdab91ed22ca694fbb0ee96c0373e09, type: 2}
+    rate: 0.1
+  - drop: {fileID: 11400000, guid: 61a246f495d0e914b81969cb90975266, type: 2}
+    rate: 0.1
+  - drop: {fileID: 11400000, guid: b8c0618afeec95f4dbfc1cd99215c40d, type: 2}
+    rate: 0.1
+  - drop: {fileID: 11400000, guid: e6140407ba5ea1d4faa8f33368486242, type: 2}
+    rate: 0.1
+  timeUnitsOffered: 30

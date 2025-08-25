@@ -21,4 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fb19e616ac3cea941ac9a810a411afe5, type: 2}
   - {fileID: 11400000, guid: b92d67c96b34b9442843b3ffd13a515d, type: 2}
   - {fileID: 11400000, guid: 43df09d8f94f3ff4689d1d82e04c247c, type: 2}
-  bonusBanner: {fileID: 0}
+  bonusBanner: {fileID: 11400000, guid: 9d04b8917da9206498fd794e56638a95, type: 2}
