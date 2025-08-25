@@ -62,9 +62,9 @@ public class BannerManager : MonoBehaviour
     }
 
     // Remove a banner explicitly
-    public void RemoveBanner(Banner banner)
+    public void RemoveBanner(ActiveBanner banner)
     {
-        activeBanners.RemoveAll(b => b.banner == banner);
+        activeBanners.RemoveAll(b => b == banner);
     }
 
     public void QueueBanner(Banner banner)
@@ -114,7 +114,7 @@ public class BannerManager : MonoBehaviour
                     if (activeBanners[i].timeRemaining <= 0)
                     {
                         // Time ran out, remove this banner
-                        RemoveBanner(activeBanners[i].banner);
+                        RemoveBanner(activeBanners[i]);
                     }
                 }
             }
