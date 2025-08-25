@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
@@ -6,6 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance = null;
     AudioSource audioPlayer;
 
+    [SerializeField] AudioMixer sfxMixer;
     [SerializeField] AudioClip keyboard1;
     [SerializeField] AudioClip keyboard2;
     [SerializeField] AudioClip keyboard3;
@@ -15,6 +17,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip purchaseFail;
     [SerializeField] AudioClip rollTick;
     [SerializeField] AudioClip rollFinal;
+    [SerializeField] AudioClip dropCollected;
 
     private void Awake()
     {
@@ -67,5 +70,20 @@ public class AudioManager : MonoBehaviour
     public void PlayRollFinal()
     {
         audioPlayer.PlayOneShot(rollFinal);
+    }
+
+    public void PlayDropCollected()
+    {
+        audioPlayer.PlayOneShot(dropCollected);
+    }
+
+    public void SetBGMVolume(float val)
+    {
+        sfxMixer.SetFloat("BGMVol", val);
+    }
+
+    public void SetSFXVolume(float val)
+    {
+        sfxMixer.SetFloat("SFXVol", val);
     }
 }

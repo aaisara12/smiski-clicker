@@ -51,6 +51,8 @@ public class ShelfController : MonoBehaviour
         SpriteRenderer renderer = newItem.AddComponent<SpriteRenderer>();
         renderer.sprite = drop.icon;
 
+        AudioManager.Instance.PlayDropCollected();
+
         itemCount++;
         return newItem;
     }
@@ -82,11 +84,8 @@ public class ShelfController : MonoBehaviour
         if (dropToShelfMapping.ContainsKey(drop))
         {
             shelfSlots[dropToShelfMapping[drop]].color = Color.white;  // Get active color in the future 
+            AudioManager.Instance.PlayDropCollected();
         }
     }
 
-    public void DisplaySpecialDrop(Drop drop)
-    {
-
-    }
 }
