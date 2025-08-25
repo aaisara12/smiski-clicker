@@ -1,0 +1,7 @@
+.miner {
+    background-image: url("project://database/Assets/Sprites/42F8B64F-CC18-4062-A608-4784D67653C6.png?fileID=1044695942867614607&guid=b30d72ea996214677ab979c493ba7cb1&type=3#42F8B64F-CC18-4062-A608-4784D67653C6_1");
+}
+
+.miner:active {
+    background-image: url("project://database/Assets/Sprites/42F8B64F-CC18-4062-A608-4784D67653C6.png?fileID=3457213137224379034&guid=b30d72ea996214677ab979c493ba7cb1&type=3#42F8B64F-CC18-4062-A608-4784D67653C6_2");
+}
