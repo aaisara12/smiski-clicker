@@ -5,7 +5,11 @@ using UnityEngine.UIElements;
 
 public class UiConverters
 {
+#if UNITY_EDITOR
     [InitializeOnLoadMethod]
+#else
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+#endif
     public static void InitConverters()
     {
         // Create a converter group
